@@ -7,6 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1>
+  <% if @current_nerd %>
+   Welcome, <%= @current_nerd.name %>
+   <%= button_to 'Log out!', signout_path %>
+  <% else %>
+    Welcome, nerds
+      <%= button_to 'Sign in', '/signin' %>
+  <% end %>
+</h1>
+   
+<%= params.inspect %>
+
+   <%= flash[:notice] %>
 
 <%= yield %>
 

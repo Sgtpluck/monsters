@@ -3,7 +3,16 @@ MonsterParty::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
+  resources :sessions
+  resources :monsters
+
+  get '/nerds'        => 'nerds#index'
+  get '/signup'       => 'nerds#new'
+  post '/nerds'       => 'nerds#create'
+  get '/signin'       => 'sessions#new'
+  post '/signin'      => 'sessions#sign_in'
+  post '/signout'     => 'sessions#destroy'   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

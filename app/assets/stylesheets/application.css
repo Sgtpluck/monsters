@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+}
+.monster {
+  background-image: url('goblin.jpg');
+  background-repeat:no-repeat;
+  background-position: 100% 5%;
+}
