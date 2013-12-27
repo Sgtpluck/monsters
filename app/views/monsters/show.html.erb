@@ -1,6 +1,7 @@
-  <div style="background: url(<%= @monster.photo_url %>); background-repeat: no-repeat; background-position: 95% 25%; background-size: 500px;">
+  <!-- <div style="background: url(<@%= @monster.photo_url %>); background-repeat: no-repeat; background-position: 95% 25%; background-size: 500px;"> -->
 
 
+<div class='back'><%= image_tag(@monster.photo_url) %></div>
 <div class='ui two column page grid'>
 
 
@@ -8,11 +9,11 @@
   <p> Description: <%= @monster.description %></p>
 </div>
 
-<div class='column' style='width: 300px;'>
+<div class='column'>
   <h2><%= @monster.name.titleize %> </h2>
   <p>Type: <%= @monster.type.titleize %></p>
   <p>Environment: <%= @monster.environment.titleize %></p>
- <p> <%= button_to 'Edit this monster!', edit_monster_path(@monster), method: :get %></p>
+ <p> <%= button_to 'Edit this monster!', edit_monster_path(@monster), method: :get, class: 'ui black button' %></p>
  
 </div>
 

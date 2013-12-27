@@ -16,10 +16,3 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   background-repeat: no-repeat;
 }
-
-/*.show_monsters {
-  background-image: url("monsters/<%= #{@monster.id} %>");
-  width: 400px;
-  margin: auto auto;
-}
-*/
