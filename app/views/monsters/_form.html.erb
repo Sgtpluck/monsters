@@ -23,5 +23,8 @@
   <%= f.label 'What environment does it thrive in?' %>
   <%= f.select :environment, options_for_select(["Any Terrain", "Any Terrain (Cold)", "Any Terrain (Temperate)", "Any Terrain (Warm)", "Coastline", "Desert (cold)", "Desert (Temperate)", "Desert (Warm)", "Forest (Cold)", "Forest (Temperate)", "Forest (Warm)", "Rivers/Lakes", "Hills (Cold)", "Hills (Temperate)", "Hills (Warm)", "Mountains (Cold)", "Mountains (Temperate)", "Mountains (Warm)", "Ocean (Cold)", "Ocean (Temperate)", "Ocean (Warm)", "Plains (Cold)", "Plains (Temperate)", "Plains (Warm)", "Planar (Abaddon—Neutral Evil)", "Planar (Abyss—Chaotic Evil)", "Planar (Elysium—Chaotic Good)", "Planar (Heaven—Lawful Good)", "Planar (Hell—Lawful Evil)", "Planar (Plane of Air)", "Planar (Plane of Earth)", "Planar (Plane of Fire)", "Planar (Plane of Water)", "Swamp (Cold)", "Swamp (Temperate)", "Swamp (Warm)", "Underground", "Urban"])%> <br>
 
+  <%= f.label 'What does your monster look like?' %>
+  <%= f.file_field :photo %> <br>
+
   <%= f.submit %>
   <% end %>

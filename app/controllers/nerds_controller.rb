@@ -1,4 +1,7 @@
 class NerdsController < ApplicationController
+  before_action :set_nerd, only: [:show, :edit, :update, :destroy]
+  before_action :set_body_class
+
 
   def index
   end
@@ -21,6 +24,10 @@ class NerdsController < ApplicationController
 
 
   private
+
+  def set_body_class
+    @body_class = 'nerds'
+  end
 
   def set_nerd
     @nerd = Nerd.find(@nerd.id)

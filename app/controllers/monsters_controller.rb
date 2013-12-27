@@ -2,10 +2,12 @@ class MonstersController < ApplicationController
   before_action :set_monster, only: [:show, :edit, :update, :destroy]
 
   def index
+    @body_class = 'monsters'
     @monsters = Monster.all
   end
 
   def new
+    @body_class = 'make_monster'
     @monster = Monster.new
   end
 
@@ -18,13 +20,17 @@ class MonstersController < ApplicationController
     end
   end
 
+  def show
+    @body_class = 'show_monsters'
+  end
+
   def update
   end
 
   private
 
   def set_monster
-    @monster = Monster.find(@monster.id)
+    @monster = Monster.find(params[:id])
   end
 
   def monster_params
