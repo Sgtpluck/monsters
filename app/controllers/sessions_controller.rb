@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @body_class='signin'
     if session[:nerd_id]
       redirect_to '/'
     else
@@ -9,6 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def sign_in
+    @body_class='signin'
     nerd = Nerd.find_by_name(params[:name])
     if nerd && nerd.authenticate(params[:password])
       session[:nerd_id] = nerd.id
