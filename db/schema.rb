@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223191034) do
+ActiveRecord::Schema.define(version: 20131227030106) do
 
   create_table "monsters", force: true do |t|
     t.string   "name"
-    t.integer  "cr"
+    t.float    "cr"
     t.string   "environment"
     t.string   "description"
     t.string   "photo"

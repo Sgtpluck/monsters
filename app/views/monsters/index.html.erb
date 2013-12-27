@@ -3,7 +3,7 @@
 <% @monsters.each do |monster| %>
    <%= image_tag(monster.photo_url, width: 50) %><br>
   <%= link_to monster.name, monster_path(monster.id) %><br>
-  <%= monster.type %><br>
+  <%= monster.type.titleize %><br>
   <%= monster.environment %><br>
  <br><br>
   <% end %>

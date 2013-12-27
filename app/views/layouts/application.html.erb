@@ -7,18 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= @body_class %>">
-  <h1>
-  <% if @current_nerd %>
-   Welcome, <%= @current_nerd.name %>
-   <%= button_to 'Log out!', signout_path %>
+  <h1 class="ui inverted black block header"><% if @current_nerd %>
+   Welcome, <%= @current_nerd.name.titleize %>
+   <%= button_to 'Log out!', signout_path, class:'ui green button' %>
   <% else %>
-    Welcome, nerds
-      <%= button_to 'Sign in', '/signin' %>
-  <% end %>
-</h1>
-   
-<%= params.inspect %>
-
+    Welcome, Nerds
+      <%= button_to 'Sign in', '/signin', class:'ui green button' %>
+  <% end %></h1>
+<!--    
+  <#%= params.inspect %>
+ -->
    <%= flash[:notice] %>
 
 <%= yield %>

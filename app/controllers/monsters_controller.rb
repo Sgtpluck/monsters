@@ -13,6 +13,7 @@ class MonstersController < ApplicationController
 
   def create
     @monster = Monster.new(monster_params)
+    @monster.environment.downcase!
     if @monster.save
       redirect_to monsters_path, notice: 'Your monster is ready to eat some adventurers.'
     else
@@ -24,7 +25,15 @@ class MonstersController < ApplicationController
     @body_class = 'show_monsters'
   end
 
+  def edit
+  end
+
   def update
+    if @monster.update(monster_params)
+      redirect_to monsters_path
+    else
+      render :edit, notice: 'Your monster needs some work!'
+    end
   end
 
   private
