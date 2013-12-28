@@ -1,2 +1,12 @@
-Filter monsters by Challenge Rating!
+  <h2>Challenge Rating!</h2>
+
+  <%= form_tag @games %>
+
+  <% Monster.all.each do |monster| %>
+    <%= label_tag = monster.cr %>
+    <%= check_box_tag(:'cr[]', monster.cr) %><br>
+    <% end %>
+
+<br><br>
+
 

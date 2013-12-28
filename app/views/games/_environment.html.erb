@@ -1,0 +1,10 @@
+  <h2>Environment!</h2>
+
+   <%= form_tag @games %>
+  <% Monster.all.each do |monster| %>
+    <%= label_tag = monster.environment %>
+    <%= check_box_tag(:'environment[]', monster.environment) %><br>
+    <% end %>
+<br><br>
+
+

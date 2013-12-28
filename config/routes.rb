@@ -14,6 +14,7 @@ MonsterParty::Application.routes.draw do
   post '/signin'      => 'sessions#sign_in'
   post '/signout'     => 'sessions#destroy'  
   get 'games'         => 'games#index' 
+  post 'games'        => 'monsters#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

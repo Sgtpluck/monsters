@@ -1,11 +1,35 @@
 <div class="monster_index">
+  <div class='info'>
+<% if params[:cr] %>
+    <h3>Challenge Ratings Sorted By:</h3>
+    <% params[:cr].each do |cr| %>
+      <%= cr %><br>
+    <% end %>
+  </div>
+    <div class='info'>
+  <% end %>
+  <% if params[:environment] %>
+    <h3>Environment Sorted By:</h3>
+    <% params[:environment].each do |environment| %>
+      <%= environment %><br>
+    <% end %>
+  <% end %>
+</div>
 
+
+<%= button_to 'Make A New Monster', new_monster_path, class: 'ui orange button', method: :get %>
+<div class='ui stackable items'>
 <% @monsters.each do |monster| %>
-   <%= image_tag(monster.photo_url, width: 50) %><br>
+<div class='item'>
+   <%= image_tag(monster.photo_url, width: 300, class: 'image') %>
+   <div class='content'>
   <%= link_to monster.name, monster_path(monster.id) %><br>
   <%= monster.type.titleize %><br>
   <%= monster.environment %><br>
- <br><br>
+  <%= monster.cr %>
+</div>
+</div>
   <% end %>
+</div>
 
 </div>

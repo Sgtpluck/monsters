@@ -1,3 +1,13 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.games h2 {
+  text-align: center;
+}
+
+.games {
+  background-image: url('froghemoth.png');
+  background-position: 140% -50%;
+}

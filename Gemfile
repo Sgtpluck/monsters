@@ -50,6 +50,8 @@ gem 'therubyracer', platforms: :ruby # or any other runtime
 gem 'less-rails'
 gem 'semantic-ui-rails'
 
+gem 'will_paginate'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
