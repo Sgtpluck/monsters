@@ -3,7 +3,7 @@ class Monster < ActiveRecord::Base
   validates :name, presence: true
   validates :type, presence: true
   validates :cr, presence: true
-  validates :cr, numericality: { greater_than: 0 }
+  validates :cr, numericality: { greater_than: -1 }
   validates :environment, presence: true
   validates :description, presence: true
   mount_uploader :photo, PhotoUploader

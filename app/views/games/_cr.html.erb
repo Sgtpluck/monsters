@@ -1,11 +1,15 @@
   <h2>Challenge Rating!</h2>
 
   <%= form_tag @games %>
-
+  <% cr_array = [] %>
   <% Monster.all.each do |monster| %>
-    <%= label_tag = monster.cr %>
-    <%= check_box_tag(:'cr[]', monster.cr) %><br>
+    <% if cr_array.include? monster.cr %>
+    <% else %>
+      <%= label_tag = monster.cr %>
+      <%= check_box_tag(:'cr[]', monster.cr) %><br>
+      <% cr_array << monster.cr %>
     <% end %>
+  <% end %>
 
 <br><br>
 

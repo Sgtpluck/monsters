@@ -25,8 +25,9 @@
    <div class='content'>
   <%= link_to monster.name, monster_path(monster.id) %><br>
   <%= monster.type.titleize %><br>
-  <%= monster.environment %><br>
+  <%= monster.environment.titleize %><br>
   <%= monster.cr %>
+  <%= monster.visual_desc %>
 </div>
 </div>
   <% end %>

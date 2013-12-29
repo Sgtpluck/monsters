@@ -46,12 +46,13 @@ group :production do
   gem 'pg'
 end
 
-gem 'therubyracer', platforms: :ruby # or any other runtime
+# Adding semantic ui
+gem 'therubyracer', platforms: :ruby
 gem 'less-rails'
 gem 'semantic-ui-rails'
 
-gem 'will_paginate'
-
+# Trying to add pagination
+gem 'kaminari'
 # Use unicorn as the app server
 # gem 'unicorn'
 

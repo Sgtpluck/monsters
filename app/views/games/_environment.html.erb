@@ -1,10 +1,15 @@
   <h2>Environment!</h2>
 
    <%= form_tag @games %>
+   <% env_array = [] %>
   <% Monster.all.each do |monster| %>
-    <%= label_tag = monster.environment %>
-    <%= check_box_tag(:'environment[]', monster.environment) %><br>
+    <% if env_array.include? monster.environment %>
+    <% else %>
+      <%= label_tag = monster.environment %>
+      <%= check_box_tag(:'environment[]', monster.environment) %><br>
+      <% env_array << monster.environment %>
     <% end %>
+  <% end %>
 <br><br>
 
 
