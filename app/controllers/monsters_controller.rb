@@ -3,7 +3,7 @@ class MonstersController < ApplicationController
 
   def index
     @body_class = 'monsters'
-    @monsters = Monster.find_monsters(params[:cr],params[:environment])
+    @monsters = Monster.find_monsters(params[:cr],params[:environment],params[:search_monsters]).page params[:page]
   end
 
   def new
@@ -13,7 +13,10 @@ class MonstersController < ApplicationController
 
   def create
     @monster = Monster.new(monster_params)
-    @monster.environment.downcase!
+    @monster.environment.titleize
+    @monster.name.titleize
+    @monster.type.titleize
+    @monster.cr.to_f
     if @monster.save
       redirect_to monsters_path, notice: 'Your monster is ready to eat some adventurers.'
     else
@@ -43,7 +46,7 @@ class MonstersController < ApplicationController
   end
 
   def monster_params
-    params.require(:monster).permit(:name,:type,:cr,:environment,:description,:photo)
+    params.require(:monster).permit(:name,:type,:cr,:environment,:description,:photo, :exp)
   end
 
 end

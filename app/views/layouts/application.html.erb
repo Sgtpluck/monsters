@@ -7,14 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= @body_class %>">
-  <h1 class="ui inverted black block header"><% if @current_nerd %>
-   Welcome, <%= @current_nerd.name.titleize %>
-   <%= button_to 'Log out!', signout_path, class:'ui green button' %>
-  <% else %>
-    Welcome, Nerds
-      <%= button_to 'Sign in', '/signin', class:'ui green button' %>
-  <% end %></h1>
- <!--  <#%= params.inspect %> -->
+  <div class="ui inverted black block header">
+    <h1><% if @current_nerd %>
+     Welcome, <%= @current_nerd.name.titleize %>
+     <%= button_to 'Log out!', signout_path, class:'ui green button' %>
+    <% else %>
+      Welcome, Nerds
+        <%= button_to 'Sign in', '/signin', class:'ui green button' %>
+    <% end %>
+      </h1>
+      <div class='search'>
+        <%= form_tag(monsters_path, method: :get) do %>
+          <%= text_field_tag :search_monsters, params[:search_monsters], class: 'ui large input' %>
+           <%= submit_tag "Search by name", :name => nil, class: "ui mini orange button" %>
+           <% end %>
+      </div>
+  </div>  <!-- this closes the block header tag -->
+ <%= params.inspect %> -->
 
    <%= flash[:notice] %>
 

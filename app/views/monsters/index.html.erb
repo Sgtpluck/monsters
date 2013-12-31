@@ -1,32 +1,35 @@
 <div class="monster_index">
+
+
   <div class='info'>
-<% if params[:cr] %>
-    <h3>Challenge Ratings Sorted By:</h3>
-    <% params[:cr].each do |cr| %>
-      <%= cr %><br>
-    <% end %>
-  </div>
+    <% if params[:cr] %>
+      <h3>Challenge Ratings Sorted By:</h3>
+      <% params[:cr].each do |cr| %>
+        <%= cr %><br>
+      <% end %>
+      <% end %>
+    </div>
     <div class='info'>
-  <% end %>
-  <% if params[:environment] %>
-    <h3>Environment Sorted By:</h3>
-    <% params[:environment].each do |environment| %>
-      <%= environment %><br>
-    <% end %>
-  <% end %>
-</div>
+      <% if params[:environment] %>
+        <h3>Environment Sorted By:</h3>
+        <% params[:environment].each do |environment| %>
+          <%= environment %><br>
+        <% end %>
+      <% end %>
+    </div>
 
 
 <%= button_to 'Make A New Monster', new_monster_path, class: 'ui orange button', method: :get %>
 <div class='ui stackable items'>
+<%= paginate @monsters %>
 <% @monsters.each do |monster| %>
 <div class='item'>
    <%= image_tag(monster.photo_url, width: 300, class: 'image') %>
    <div class='content'>
   <%= link_to monster.name, monster_path(monster.id) %><br>
-  <%= monster.type.titleize %><br>
-  <%= monster.environment.titleize %><br>
-  <%= monster.cr %>
+  <%= monster.type %><br>
+  <%= monster.environment%><br>
+  <%= fraction(monster.cr) %><br>
   <%= monster.visual_desc %>
 </div>
 </div>

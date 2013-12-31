@@ -11,9 +11,11 @@
 </div>
 
 <div class='column'>
-  <h2><%= @monster.name.titleize %> </h2>
-  <p>Type: <%= @monster.type.titleize %></p>
-  <p>Environment: <%= @monster.environment.titleize %></p>
+  <h2><%= @monster.name %> </h2>
+  <p>Type: <%= @monster.type %></p>
+  <p>Environment: <%= @monster.environment %></p>
+  <p>Challenge Rating: <%= fraction(@monster.cr) %></p>
+  <p> Experience <%= @monster.exp %> </p>
  <p> <%= button_to 'Edit this monster!', edit_monster_path(@monster), method: :get, class: 'ui black button' %></p>
  
 </div>

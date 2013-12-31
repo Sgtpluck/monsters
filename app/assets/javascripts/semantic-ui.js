@@ -13,7 +13,7 @@
 = require semantic-ui/modules/video.js 
 = require semantic-ui/modules/modal.js 
 = require semantic-ui/modules/accordion.js 
-= require semantic-ui/modules/sidebar.js 
+require semantic-ui/modules/sidebar.js 
 = require semantic-ui/modules/search.js 
 = require semantic-ui/modules/dropdown.js 
 = require semantic-ui/modules/chatroom.js 

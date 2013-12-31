@@ -16,3 +16,10 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   background-repeat: no-repeat;
 }
+
+
+.search {
+  position: absolute;
+  right: 9px;
+  top: 20px;
+}

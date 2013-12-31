@@ -1,13 +1,12 @@
 
   <h2>Challenge Rating!</h2>
 
-  <%= form_tag @monsters %>
+  <%= form_tag '/monsters' %>
   <% cr_array = Monster.all.collect {|m| m.cr }.uniq.sort! %>
     <% cr_array.each do |cr| %>
-      <%= label_tag = fraction(cr) %>
+      <%= label_tag = cr %>
       <%= check_box_tag(:'cr[]', cr) %><br>
   <% end %>
-
+   <%= submit_tag 'Find Yourself Some Monsters!', class: 'ui orange button' %>
 <br><br>
-
 
