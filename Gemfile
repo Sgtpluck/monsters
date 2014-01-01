@@ -54,8 +54,10 @@ gem 'semantic-ui-rails'
 # Trying to add pagination
 gem 'kaminari'
 
-# Adding fractionality for CR
-gem 'fraction'
+# Adding ActiveRecord search functionality
+gem "squeel" 
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

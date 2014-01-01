@@ -4,7 +4,7 @@
    <% env_array = Monster.all.map {|m| m.environment.gsub(/,/,"") }.uniq %>
    <% env_array = env_array.join(" ").strip.split.uniq.sort %>
    <% env_array.each do |env| %>
-      <% if env != 'Or' && env != 'Of' && env != 'All' && env != 'Negative' && env != 'Positive' && env != 'Near' && env != 'Non' && env !='Planes' && env != 'And' && env != 'Styx' && env != 'True' && env != 'Time' && env != 'Deep' && env != 'Hells' && env != 'Heat' && env != 'Nine' && env != 'Non' && env != 'Para' && env != 'Outer' && env != 'Quasi' && env != 'The' && env != 'Good' %> 
+      <% if env != 'Or' && env != 'Of' && env != 'All' && env != 'Negative' && env != 'Positive' && env != 'Near' && env != 'Non' && env !='Planes' && env != 'And' && env != 'Styx' && env != 'True' && env != 'Time' && env != 'Deep' && env != 'Hells' && env != 'Heat' && env != 'Nine' && env != 'Non' && env != 'Para' && env != 'Outer' && env != 'Quasi' && env != 'The' && env != 'Good' && env != 'Except' %> 
       <!-- Look, I know the line above is really ugly, but I'm not sure out how to sieve out the actually useful descriptors from the rest of the word soup, so I'm just doing it manually. :( -->
         <%= label_tag = env %>
         <%= check_box_tag(:'environment[]', env) %><br>

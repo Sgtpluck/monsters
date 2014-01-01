@@ -9,18 +9,21 @@ class Monster < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
   validates :exp, presence: true
   validates :exp, numericality: { greater_than: 49}
-  scope :by_env, lambda {|env| where("(environment) LIKE ?", "%#{env}%")}
 
-  def self.find_monsters(cr=nil,environment=nil,name=nil)
-    if cr && environment
-      where(cr: cr).by_env(environment)
+  def self.find_monsters(cr=nil,enviro=nil,search_name=nil)
+    if cr && enviro
+      enviro = enviro.map {|env| "%" + env + "%" }
+      where(cr: cr).where{environment.like_all enviro}
     elsif cr 
       where(cr: cr)
-    elsif environment
-      by_env(environment)
-    elsif name
-      name = name.titleize
-      where("name LIKE ?", "%#{name}%")
+    elsif enviro
+      enviro = enviro.map {|env| "%" + env + "%" }
+      where{environment.like_all enviro}
+      # The more complicated, non-squeel version:
+      # where((["LOWER(environment) LIKE ?"] * enviro.size).join(" AND "), *enviro.map{|k| "%#{k.downcase}%"})
+    elsif search_name
+      search_name = "%" + search_name.titleize + "%"
+      where{name =~ search_name}
     else
       all
     end

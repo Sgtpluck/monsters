@@ -24,12 +24,13 @@
 <%= paginate @monsters %>
 <% @monsters.each do |monster| %>
 <div class='item'>
-   <%= image_tag(monster.photo_url, width: 300, class: 'image') %>
+   <%= image_tag(monster.photo_url, width: 300, class: 'image') if monster.photo_url %>
    <div class='content'>
   <%= link_to monster.name, monster_path(monster.id) %><br>
   <%= monster.type %><br>
-  <%= monster.environment%><br>
-  <%= fraction(monster.cr) %><br>
+  <b>Thrives in:</b> <%= monster.environment%><br>
+  <b>Exp:</b> <%= monster.exp %> points <br>
+ <b> Challenge Rating:</b> <%= fraction(monster.cr) %><br><br>
   <%= monster.visual_desc %>
 </div>
 </div>

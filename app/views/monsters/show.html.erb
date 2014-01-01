@@ -7,6 +7,7 @@
 
 <div class='column'>
   <p> Description:</p> 
+  <p><%= @monster.visual_desc %></p>
   <p><%= @monster.description %></p>
 </div>
 
@@ -15,7 +16,7 @@
   <p>Type: <%= @monster.type %></p>
   <p>Environment: <%= @monster.environment %></p>
   <p>Challenge Rating: <%= fraction(@monster.cr) %></p>
-  <p> Experience <%= @monster.exp %> </p>
+  <p> Experience: <%= @monster.exp %> </p>
  <p> <%= button_to 'Edit this monster!', edit_monster_path(@monster), method: :get, class: 'ui black button' %></p>
  
 </div>
