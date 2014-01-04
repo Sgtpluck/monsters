@@ -29,8 +29,8 @@
   <%= link_to monster.name, monster_path(monster.id), class: 'ui ribbon label' %><br>
   <div class='content'>
    <%= image_tag(monster.photo_url, width: 300, class: 'image') if monster.photo_url %>
-  <%= monster.type %><br>
-  <b>Thrives in:</b> <%= monster.environment%><br>
+  <%= monster.type.titleize %><br>
+  <b>Thrives in:</b> <%= monster.environment.titleize %><br>
   <b>Exp:</b> <%= monster.exp %> points <br>
  <b> Challenge Rating:</b> <%= fraction(monster.cr) %><br><br>
   <%= monster.visual_desc %>

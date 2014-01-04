@@ -13,10 +13,6 @@ class MonstersController < ApplicationController
 
   def create
     @monster = Monster.new(monster_params)
-    @monster.environment.titleize
-    @monster.name.titleize
-    @monster.type.titleize
-    @monster.cr.to_f
     if @monster.save
       redirect_to monsters_path, notice: 'Your monster is ready to eat some adventurers.'
     else

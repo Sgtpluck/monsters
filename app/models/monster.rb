@@ -29,7 +29,4 @@ class Monster < ActiveRecord::Base
     end
   end
 
- # where("(monsters.environment) LIKE :s", :s "%#{environment}%")
-  # .where("(environment LIKE ?)", "%#{environment}")
-
 end
