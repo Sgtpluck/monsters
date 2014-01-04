@@ -23,3 +23,11 @@ body {
   right: 9px;
   top: 20px;
 }
+
+a:link {
+  color: #E96633;
+}
+
+a:visited {
+  color: #5BBD72;
+}

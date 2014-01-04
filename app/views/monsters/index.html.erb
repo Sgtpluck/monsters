@@ -19,14 +19,16 @@
     </div>
 
 
-<%= button_to 'Make A New Monster', new_monster_path, class: 'ui orange button', method: :get %>
+<%= button_to 'Too many? Filter Monsters.', games_path, class: 'ui orange button', method: :get %>
 <div class='ui stackable items'>
+  <div class='paginate'>
 <%= paginate @monsters %>
-<% @monsters.each do |monster| %>
+  </div>
+<% @monsters.each do |monster| %> 
 <div class='item'>
+  <%= link_to monster.name, monster_path(monster.id), class: 'ui ribbon label' %><br>
+  <div class='content'>
    <%= image_tag(monster.photo_url, width: 300, class: 'image') if monster.photo_url %>
-   <div class='content'>
-  <%= link_to monster.name, monster_path(monster.id) %><br>
   <%= monster.type %><br>
   <b>Thrives in:</b> <%= monster.environment%><br>
   <b>Exp:</b> <%= monster.exp %> points <br>

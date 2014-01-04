@@ -5,7 +5,8 @@
 <%= number_field_tag :number %><br>
 
 <%= label_tag "Pick the Challenge Rating of the campaign you're creating!" %>
-<%= select_tag :cr, options_for_select(Monster.all.collect {|monster| monster.cr }.sort) %><br>
+<% cr_array = Monster.all.collect {|m| m.cr }.uniq.sort! %>
+<%= select_tag :cr, options_for_select(cr_array.each {|cr| fraction(cr) }) %><br>
 
 <%= submit_tag 'Make a game!' %>
 
