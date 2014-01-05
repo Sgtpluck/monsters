@@ -3,7 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .nerds {
-  background-image: url('goblin.jpg');
+
+  background-image: url(asset_path('battleclank.png'));
   background-repeat:no-repeat;
-  background-position: 100% 1%;
+  background-position: 100% -35%;
+}
+
+.nerd_form {
+  padding: 20px;
+  
 }

@@ -3,9 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .signin {
-  background-image: url('nerds.png');
-  background-position: 0% 0%;
+  background-image: url(asset_path('nerds.png'));
+  background-position: 0% -20%;
     text-align: right;
+}
+
+.signin .content {
+  padding: 20px;
 }
 
 .signin h1 {

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .welcome {
-  background-image: url('bugbear.jpeg');
+  background-image: url(asset_path('bugbear.jpeg'));
   background-position: 1% -75%;
   margin: 0;
 }
@@ -14,7 +14,7 @@
 }
 
 
-.ui.inverted.black.block.header {
+.ui.block.header {
   margin: 0;
   background-image: url(asset_path('dungeon.jpg'));
 }
