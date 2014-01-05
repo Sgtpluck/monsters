@@ -37,6 +37,9 @@ group :development, :test do
   gem 'rspec-rails', '3.0.0.beta1'
   gem 'sqlite3'
   gem 'guard-rspec', require: false
+  gem 'simplecov', require: false
+  gem 'shoulda-matchers'
+  gem 'capybara'
 end
 
 # Use ActiveModel has_secure_password

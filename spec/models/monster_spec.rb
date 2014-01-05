@@ -44,7 +44,11 @@ describe Monster do
       monster.exp = 49
       expect(monster).to be_invalid
     end
+  
+  end # Closing validations
 
-
+  describe 'self.find_monsters' do
   end
+
+
 end

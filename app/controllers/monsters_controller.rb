@@ -25,11 +25,14 @@ class MonstersController < ApplicationController
   end
 
   def edit
+    if @current_nerd.name != 'davida'
+      redirect_to monsters_path
+    end
   end
 
   def update
     if @monster.update(monster_params)
-      redirect_to monsters_path
+      redirect_to monster_path
     else
       render :edit, notice: 'Your monster needs some work!'
     end

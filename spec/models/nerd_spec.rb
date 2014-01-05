@@ -34,7 +34,6 @@ describe Nerd do
       expect(nerd).to be_invalid
     end
 
-
-
   end
+
 end

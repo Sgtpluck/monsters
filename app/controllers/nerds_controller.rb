@@ -16,6 +16,7 @@ class NerdsController < ApplicationController
     @nerd.email.downcase!
     
     if @nerd.save
+      session[:nerd_id] = @nerd.id
       redirect_to :root
     else
       render :new, notice: 'Your nerd did not save, sorry!'

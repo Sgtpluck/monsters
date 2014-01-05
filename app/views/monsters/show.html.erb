@@ -17,7 +17,9 @@
   <p>Environment: <%= @monster.environment.titleize %></p>
   <p>Challenge Rating: <%= fraction(@monster.cr) %></p>
   <p> Experience: <%= @monster.exp %> </p>
- <p> <%= button_to 'Edit this monster!', edit_monster_path(@monster), method: :get, class: 'ui black button' %></p>
+ <p> <% if @current_nerd && @current_nerd.name == 'davida' %>
+  <%= button_to 'Edit this monster!', edit_monster_path(@monster), method: :get, class: 'ui black button' %></p>
+  <% end %>
  
 </div>
 
