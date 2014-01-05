@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
   private
   
   def current_nerd
-    @current_nerd ||= Nerd.find(session[:nerd_id]) if session[:nerd_id]
+    @current_nerd  = nil
+    session[:nerd_id] = nil
+    # ||= Nerd.find(session[:nerd_id]) if session[:nerd_id]
   end
 
   helper_method :current_nerd
