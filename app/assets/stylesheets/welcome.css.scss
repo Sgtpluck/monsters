@@ -4,7 +4,7 @@
 
 .welcome {
   background-image: url('bugbear.jpeg');
-  background-position: 50% 90%;
+  background-position: 1% -75%;
   margin: 0;
 }
 
@@ -16,5 +16,5 @@
 
 .ui.inverted.black.block.header {
   margin: 0;
-  background-image: url('dungeon.jpg')
+  background-image: url(image_path('dungeon.jpg'));
 }
