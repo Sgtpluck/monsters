@@ -1,4 +1,4 @@
-class TurnCrIntoFloat < ActiveRecord::Migration
+ class TurnCrIntoFloat < ActiveRecord::Migration
   def change
     change_column :monsters, :cr, :float
   end
