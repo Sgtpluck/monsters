@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def new
     @body_class='signin'
     if session[:nerd_id]
-      redirect_to '/'
+      redirect_to :root
     else
       @nerd = Nerd.new
     end

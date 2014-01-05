@@ -11,7 +11,9 @@
     <h1>
     <% if @current_nerd %>
       Welcome, <%= @current_nerd.name.titleize %> 
-      <%= button_to 'Log out!', signout_path, class:'ui mini green button' %>
+      <div class="green ui buttons">
+      <%= button_to 'Log out!', signout_path, class:'ui mini button' %>
+      <%= button_to 'Edit your profile!', edit_nerd_path(@current_nerd.id), class:'ui mini button', method: :get %>
     <% else %>
       Welcome, Nerds <%= button_to 'Sign in', '/signin', class:'ui mini green button' %>
     <% end %>

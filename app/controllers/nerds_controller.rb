@@ -23,6 +23,23 @@ class NerdsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @nerd.update(nerd_params)
+      redirect_to :root
+    else
+      render :edit, notice: 'Your nerd did not save, sorry!'
+    end
+  end
+
+  def destroy
+    @current_nerd.destroy
+    session[:nerd_id] = nil
+    redirect_to :root
+  end
+
 
   private
 
@@ -31,7 +48,7 @@ class NerdsController < ApplicationController
   end
 
   def set_nerd
-    @nerd = Nerd.find(@nerd.id)
+    @nerd = @current_nerd
   end
 
   def nerd_params

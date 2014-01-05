@@ -101,6 +101,13 @@ describe MonstersController do
   end # Ends 'Monster show page'
 
   describe 'Updating monsters' do
+
+    it 'should redirect if not davida' do
+      @current_nerd.name = 'davida'
+      get :edit
+      expect(response).to be_redirect
+    end
+
     
     it 'does update params' do
       monster = Monster.create(name: "Bat", 

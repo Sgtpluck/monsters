@@ -6,16 +6,15 @@ MonsterParty::Application.routes.draw do
   root 'welcome#index'
   resources :sessions
   resources :monsters
+  resources :nerds
 
   get '/nerds'        => 'nerds#index'
   get '/signup'       => 'nerds#new'
-  post '/nerds'       => 'nerds#create'
   get '/signin'       => 'sessions#new'
   post '/signin'      => 'sessions#sign_in'
   post '/signout'     => 'sessions#destroy'  
   get 'games'         => 'games#index' 
   post 'games'        => 'monsters#index'
-  get 'more'          => 'games#full_game'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

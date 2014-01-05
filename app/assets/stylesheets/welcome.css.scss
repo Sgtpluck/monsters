@@ -4,9 +4,17 @@
 
 .welcome {
   background-image: url('bugbear.jpeg');
+  background-position: 50% 90%;
+  margin: 0;
 }
 
 .welcome .container {
   width: 500px;
   padding: 10px;
+}
+
+
+.ui.inverted.black.block.header {
+  margin: 0;
+  background-image: url('dungeon.jpg')
 }

@@ -47,19 +47,41 @@ describe NerdsController do
   
   end # end of 'Make a new nerd'
 
-  # I can't figure out how to call this private method!
-  # describe 'private method set_nerd' do
+  
+  describe 'update nerds' do
 
-  #   it 'should set the current nerd' do
-  #     @nerdo = Nerd.create(name: 'nerdo',
-  #                         email: 'nerd@nerds.com',
-  #                         password: 'password',
-  #                         password_confirmation: 'password')
-  #     @nerdo.instance_eval{ set_nerd }
-  #     @nerdo.instance_eval{ set_nerd }.should eq(@nerdo)
-  #   end
-  # end
+    it 'does update params' do
+      nerd = Nerd.create(name: 'davida', email: 'davida@davidamail.com', password: 'password', password_confirmation: 'password')
 
+      patch :update, id: nerd.id, nerd: {
+                                        name: 'davida1' }
+
+      expect(response).to redirect_to(:root)
+    end
+
+    # it "should render the edit view if the nerd isn't saved" do
+    #   nerd = Nerd.create(name: 'davida',
+    #                       email: 'davida@nerds.com',
+    #                       password: 'password',
+    #                       password_confirmation: 'password')
+    #   patch :update, id: nerd.id, nerd: {
+    #                                    password: '12345678',
+    #                                    password_confirmation: '123456789' }
+    #   expect(response).to render_template(:edit)
+    # end
+  end
+
+  describe 'destroy nerds' do
+    it 'should destroy a nerd' do
+      nerd = Nerd.create(name: 'davida',
+                          email: 'davida@nerds.com',
+                          password: 'password',
+                          password_confirmation: 'password')
+      delete :destroy, id: nerd.id
+
+      expect(response).to redirect_to(monsters_path)
+    end
+  end
 
 
 end

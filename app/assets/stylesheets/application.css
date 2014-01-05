@@ -15,6 +15,7 @@
 body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   background-repeat: no-repeat;
+  margin: 0;
 }
 
 
@@ -30,4 +31,9 @@ a:link {
 
 a:visited {
   color: #5BBD72;
+}
+
+
+.menu {
+
 }

@@ -1,12 +1,15 @@
 
-<%= form_tag(@game) %>
 
-<%= label_tag 'How many encounters would you like for your campaign?' %>
-<%= number_field_tag :number %><br>
+<!-- IGNORE ME. PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN. HE'S CHANGING. 
+<#%= form_tag(@game) %>
 
-<%= label_tag "Pick the Challenge Rating of the campaign you're creating!" %>
-<% cr_array = Monster.all.collect {|m| m.cr }.uniq.sort! %>
-<%= select_tag :cr, options_for_select(cr_array.each {|cr| fraction(cr) }) %><br>
+<#%= label_tag 'How many encounters would you like for your campaign?' %>
+<#%= number_field_tag :number %><br>
 
-<%= submit_tag 'Make a game!' %>
+<#%= label_tag "Pick the Challenge Rating of the campaign you're creating!" %>
+<#% cr_array = Monster.all.collect {|m| m.cr }.uniq.sort! %>
+<#%= select_tag :cr, options_for_select(cr_array.each {|cr| fraction(cr) }) %><br>
 
+<#%= submit_tag 'Make a game!' %>
+
+ -->
