@@ -1,7 +1,6 @@
   <!-- <div style="background: url(<@%= @monster.photo_url %>); background-repeat: no-repeat; background-position: 95% 25%; background-size: 500px;"> -->
 
 
-<div class='back'><%= image_tag(@monster.photo_url) %></div>
 <div class='ui two column page grid'>
 
 
@@ -17,6 +16,7 @@
   <p>Environment: <%= @monster.environment.titleize %></p>
   <p>Challenge Rating: <%= fraction(@monster.cr) %></p>
   <p> Experience: <%= @monster.exp %> </p>
+  <div class='back'><%= image_tag(@monster.photo_url) %></div>
  <p> <% if @current_nerd && @current_nerd.name == 'davida' %>
   <%= button_to 'Edit this monster!', edit_monster_path(@monster), method: :get, class: 'ui black button' %></p>
   <% end %>
