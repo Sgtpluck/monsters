@@ -2,7 +2,6 @@ class NerdsController < ApplicationController
   before_action :set_nerd, only: [:show, :edit, :update, :destroy]
   before_action :set_body_class
 
-
   def index
   end
 
@@ -40,7 +39,6 @@ class NerdsController < ApplicationController
     redirect_to :root
   end
 
-
   private
 
   def set_body_class
@@ -52,7 +50,7 @@ class NerdsController < ApplicationController
   end
 
   def nerd_params
-    params.require(:nerd).permit(:name,:email,:password,:password_confirmation)
+    params.require(:nerd).permit(:name, :email, :password, :password_confirmation)
   end
 
 end

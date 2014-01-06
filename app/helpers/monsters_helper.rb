@@ -11,7 +11,7 @@ module MonstersHelper
     elsif num == '.33'.to_f
       num = '1/3'
     elsif num == '0.5'.to_f
-      num= '1/2'
+      num = '1/2'
     else
       num
     end

@@ -12,8 +12,8 @@ MonsterParty::Application.routes.draw do
   get '/signup'       => 'nerds#new'
   get '/signin'       => 'sessions#new'
   post '/signin'      => 'sessions#sign_in'
-  post '/signout'     => 'sessions#destroy'  
-  get 'games'         => 'games#index' 
+  post '/signout'     => 'sessions#destroy'
+  get 'games'         => 'games#index'
   post 'games'        => 'monsters#index'
 
   # Example of regular route:

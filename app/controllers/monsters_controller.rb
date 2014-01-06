@@ -3,7 +3,7 @@ class MonstersController < ApplicationController
 
   def index
     @body_class = 'monsters'
-    @monsters = Monster.find_monsters(params[:cr],params[:environment],params[:search_monsters]).page(params[:page])
+    @monsters = Monster.find_monsters(params[:cr], params[:environment], params[:search_monsters]).page(params[:page])
   end
 
   def new
@@ -16,7 +16,7 @@ class MonstersController < ApplicationController
     if @monster.save
       redirect_to monsters_path, notice: 'Your monster is ready to eat some adventurers.'
     else
-      render :new, notice: "That monster needs some more work!"
+      render :new, notice: 'That monster needs some more work!'
     end
   end
 
@@ -25,9 +25,7 @@ class MonstersController < ApplicationController
   end
 
   def edit
-    if @current_nerd.name != 'davida'
-      redirect_to monsters_path
-    end
+    redirect_to monsters_path if @current_nerd.name != 'davida'
   end
 
   def update
@@ -45,7 +43,6 @@ class MonstersController < ApplicationController
   end
 
   def monster_params
-    params.require(:monster).permit(:name,:type,:cr,:environment,:description,:photo, :exp, :visual_desc)
+    params.require(:monster).permit(:name, :type, :cr, :environment, :description, :photo, :exp, :visual_desc)
   end
-
 end

@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
-
   def new
-    @body_class='signin'
+    @body_class = 'signin'
     if session[:nerd_id]
       redirect_to :root
     else
@@ -10,13 +9,13 @@ class SessionsController < ApplicationController
   end
 
   def sign_in
-    @body_class='signin'
+    @body_class = 'signin'
     nerd = Nerd.find_by_name(params[:name])
     if nerd && nerd.authenticate(params[:password])
       session[:nerd_id] = nerd.id
-      redirect_to '/', notice: "You are now signed in!"
+      redirect_to '/', notice: 'You are now signed in!'
     else
-      render :new, notice: "Sorry, nerd, you gave me an invalid name or password!" #this notice doesn't work. Figure out why!
+      render :new, notice: 'Sorry, nerd, you gave me an invalid name or password!' #this notice doesn't work. Figure out why!
     end
   end
 
@@ -24,6 +23,5 @@ class SessionsController < ApplicationController
     session[:nerd_id] = nil
     redirect_to '/', notice: 'See ya next time!'
   end
-
 
 end

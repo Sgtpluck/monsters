@@ -1,3 +1,4 @@
+# Application controller, sets the current_nerd session.
 class ApplicationController < ActionController::Base
   before_action :current_nerd
   # Prevent CSRF attacks by raising an exception.
@@ -5,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-  
+
   def current_nerd
     @current_nerd ||= Nerd.find(session[:nerd_id]) if session[:nerd_id]
   end
