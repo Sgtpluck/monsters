@@ -3,7 +3,7 @@ class MonstersController < ApplicationController
 
   def index
     @body_class = 'monsters'
-    @monsters = Monster.find_monsters(params[:cr],params[:environment],params[:search_monsters]).page params[:page]
+    @monsters = Monster.find_monsters(params[:cr],params[:environment],params[:search_monsters]).page(params[:page])
   end
 
   def new
