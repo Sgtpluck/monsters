@@ -1,5 +1,5 @@
 class NerdsController < ApplicationController
-  before_action :set_nerd, only: [:show, :edit, :update, :destroy]
+  before_action :set_nerd, only: [:edit, :update, :destroy]
   before_action :set_body_class
 
   def index
@@ -23,9 +23,14 @@ class NerdsController < ApplicationController
   end
 
   def edit
+    if @nerd.present?
+    else
+      redirect_to :root
+    end
   end
 
   def update
+    set_nerd
     if @nerd.update(nerd_params)
       redirect_to :root
     else
@@ -46,7 +51,7 @@ class NerdsController < ApplicationController
   end
 
   def set_nerd
-    @nerd = @current_nerd
+    @nerd = current_nerd
   end
 
   def nerd_params

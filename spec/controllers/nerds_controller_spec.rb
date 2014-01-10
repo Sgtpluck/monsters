@@ -22,7 +22,7 @@ describe NerdsController do
 
   describe 'Make a new nerd' do
 
-    it is 'successful' do
+    it 'is successful' do
       get :new
       expect(response).to be_successful
     end
@@ -47,24 +47,20 @@ describe NerdsController do
   end # end of 'Make a new nerd'
 
   describe 'update nerds' do
+    let(:nerd) { Nerd.create!(name: 'davida',
+                              email: 'davida@nerds.com',
+                              password: 'password',
+                              password_confirmation: 'password') }
 
     it 'does update params' do
-      nerd = Nerd.create(name: 'davida',
-                         email: 'davida@davidamail.com',
-                         password: 'password',
-                         password_confirmation: 'password')
+      patch :update, id: 1, nerd: {
+                                        name: 'davida1'
+                                      }
 
-      patch :update, id: nerd.id, nerd: {
-                                        name: 'davida1' }
-
-      expect(response).to redirect_to(:root)
+      expect(nerd.name).to eq('davida1')
     end
 
     # it "should render the edit view if the nerd isn't saved" do
-    #   nerd = Nerd.create(name: 'davida',
-    #                       email: 'davida@nerds.com',
-    #                       password: 'password',
-    #                       password_confirmation: 'password')
     #   patch :update, id: nerd.id, nerd: {
     #                                    password: '12345678',
     #                                    password_confirmation: '123456789' }
