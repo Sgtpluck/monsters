@@ -12,7 +12,7 @@ You are <%= 'not' if @current_visitor.mobile == false %> on a mobile device.
   </tr>
   <tr>
     <td> <%= Visitor.sum(:visits) %> </td>
-    <td> <%= Visitor.where(visits: 1).count %> </td>
+    <td> <%= Visitor.unique %> </td>
     <td> <%= Visitor.where('visits > 1').count %> </td>
     <td> <%= Visitor.where(mobile: true).count %> </td>
   </tr>
