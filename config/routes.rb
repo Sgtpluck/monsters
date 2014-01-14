@@ -16,6 +16,7 @@ MonsterParty::Application.routes.draw do
   get 'games'         => 'games#index'
   post 'games'        => 'monsters#index'
   get 'more'          => 'games#full_game'
+  get 'analysis'     => 'visitors#analytics'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

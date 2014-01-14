@@ -10,6 +10,22 @@ class ApplicationController < ActionController::Base
   def current_nerd
     @current_nerd ||= Nerd.find(session[:nerd_id]) if session[:nerd_id]
   end
-
   helper_method :current_nerd
+
+  def current_visitor
+    @current_visitor ||= if session[:visitor_id] 
+      Visitor.find( session[:visitor_id] )
+    else
+      visitor = Visitor.create(ip: request.remote_ip, mobile: user_mobile?)
+      session[:visitor_id] = visitor.id
+      visitor
+    end
+    @current_visitor.add_visit
+  end
+
+  def user_mobile?
+    request.user_agent.downcase.include?('mobile')
+  end
+  helper_method :user_mobile?
+
 end

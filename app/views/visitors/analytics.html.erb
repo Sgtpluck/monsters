@@ -1,0 +1,19 @@
+Welcome, Visitor at IP <%= @current_visitor.ip %>
+<br>
+You are <%= 'not' if @current_visitor.mobile == false %> on a mobile device.
+<br><br>
+<h2>Page Visits Data:</h2>
+<table>
+  <tr>
+    <th> Total Page Visits </th>
+    <th> Unique visitors </th>
+    <th> Repeat visitiors </th>
+    <th> Mobile visitors </th>
+  </tr>
+  <tr>
+    <td> <%= Visitor.sum(:visits) %> </td>
+    <td> <%= Visitor.where(visits: 1).count %> </td>
+    <td> <%= Visitor.where('visits > 1').count %> </td>
+    <td> <%= Visitor.where(mobile: true).count %> </td>
+  </tr>
+</table>

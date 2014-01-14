@@ -33,6 +33,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'binding_of_caller'
+  gem 'better_errors'
+end
+
 group :development, :test do
   gem 'rspec-rails', '3.0.0.beta1'
   gem 'sqlite3'
@@ -40,6 +45,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password
