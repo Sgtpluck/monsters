@@ -2,8 +2,8 @@
 class ApplicationController < ActionController::Base
   before_action :current_nerd
   before_action :current_visitor
-  before_action :add_visit, except: [:analytics]
-  before_action :update_pageview_count, except: [:analytics]
+  # before_action :add_visit, except: [:analytics]
+  # before_action :update_pageview_count, except: [:analytics]
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
