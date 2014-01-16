@@ -5,14 +5,18 @@ You are <%= 'not' if @current_visitor.mobile == false %> on a mobile device.
 <h2>Page Visits Data:</h2>
 <table>
   <tr>
-    <th> Total Page Visits </th>
+    <th> Total Page Views </th>
+    <th> Total Visits </th>
     <th> Unique visitors </th>
-    <th> Repeat visitiors </th>
+    <th> One-Time Visitors </th>
+    <th> Returning visitiors </th>
     <th> Mobile visitors </th>
   </tr>
   <tr>
+    <td> <%= Visitor.sum(:pageview) %> </td>
     <td> <%= Visitor.sum(:visits) %> </td>
     <td> <%= Visitor.unique %> </td>
+    <td> <%= Visitor.where(visits: 1).count %>
     <td> <%= Visitor.where('visits > 1').count %> </td>
     <td> <%= Visitor.where(mobile: true).count %> </td>
   </tr>

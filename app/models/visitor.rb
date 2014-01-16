@@ -1,7 +1,11 @@
 class Visitor < ActiveRecord::Base
 
-  def add_visit
-    self.update(visits: (visits+1))
+    def self.total_pageviews
+    self.sum { |visitor| visitor.pageview }
+  end
+
+  def self.total_visits
+    self.sum { |visitor| visitor.visits }
   end
 
   def self.ips
