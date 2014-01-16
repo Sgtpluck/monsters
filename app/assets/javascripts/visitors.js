@@ -32,14 +32,14 @@
     var canvasRect = document.querySelector( "#canvasRect" ),
     context = canvasRect.getContext( '2d' );
     // setting the drawBarRect function
-    var drawBarRect = function( height, color, xCoord, text){
+    var drawBarRect = function( height, color, xCoord ){
         //being drawing
         context.beginPath();
         //draw the rectangle
         var rectWidth = 100;
         var rectHeight = height;
         var x = xCoord;
-        var y = canvasRect.height - rectHeight;
+        var y = canvasRect.height - rectHeight - 20;
 
         context.rect( x, y, rectWidth, rectHeight );
         //set fill color
@@ -49,19 +49,19 @@
 
         context.font = '12pt Arial';
         context.fillStyle = 'black';
-        context.fillText( text,
+        context.fillText( height,
                        canvasRect.width/2,
                        canvasRect.height/2 + 100
                       );
         context.font = '12pt Arial';
         context.fillStyle = 'black';
         context.fillText( "Total Page Views",
-                       canvasRect.width/2 -50,
-                       canvasRect.height
+                       canvasRect.width/2 - 60,
+                       canvasRect.height - 5
                       );
 
     };
-    drawBarRect( pageviews, 'blue', 50, pageviews);
+    drawBarRect( pageviews, 'blue', 30 );
 
     var drawCircle = function( startRads, endRads, color, circText, circTextWidth ){
         var canvasCirc = document.querySelector( "#canvasCirc" ),
@@ -118,7 +118,7 @@
     };
 
     drawMobCirc(0, mobileRads, 'pink', 'Mobile Visitors: ' + mobilePer + '%', 25);
-    drawMobCirc(mobileRads, mobileRads + normalRads, 'black', 'Computer Visitors: ' + normalPer + '%', 200)
+    drawMobCirc(mobileRads, mobileRads + normalRads, 'black', 'Other: ' + normalPer + '%', 175)
     });
 
 })();
