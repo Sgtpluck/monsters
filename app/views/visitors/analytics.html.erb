@@ -3,26 +3,34 @@ Welcome, Visitor at IP <%= @current_visitor.ip %>
 You are <%= 'not' if @current_visitor.mobile == false %> on a mobile device.
 <br><br>
 <h2>Page Visits Data:</h2>
-<canvas id='canvasRect'>
+<canvas id='canvasRect' width="150" height="300" >
 <table>
   <tr>
     <th> Total Page Views </th>
     <th> Total Visits </th>
-    <th> Unique visitors </th>
+    <th> Unique Visitors </th>
     <th> One-Time Visitors </th>
-    <th> Returning visitiors </th>
+    <th> Returning Visitors </th>
     <th> Mobile visitors </th>
   </tr>
   <tr>
     <td id='pageview'> <%= Visitor.sum(:pageview) %> </td>
     <td id='total_visits'> <%= Visitor.sum(:visits) %> </td>
-    <td id='uniq'> <%= Visitor.all.count %> </td>
-    <td id='one_time'> <%= Visitor.where(visits: 1).count %>
-    <td id='return'> <%= Visitor.where('visits > 1').count %> </td>
+    <td id='uniq'> 30 </td>
+    <td id='one_time'> 10 </td>
+    <td id='return'> 20 </td>
     <td id='mobile'> <%= Visitor.where(mobile: true).count %> </td>
   </tr>
 </table>
-
-<canvas id='canvasCirc'>
-  </canvas>
 </canvas>
+
+<canvas id='canvasCirc' width="400" height="300">
+  </canvas>
+
+  <canvas id='canvasMobCirc' width"500" height="300">
+  </canvas>
+
+<!-- 
+  <td id='uniq'> <%= Visitor.all.count %> </td>
+  <td id='one_time'> <@%= Visitor.where(visits: 1).count %> </td>
+    <td id='return'> <@%= Visitor.where('visits > 1').count %> </td> -->

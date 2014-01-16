@@ -8,49 +8,117 @@
         uniqEl = document.querySelector( '#uniq'),
         oneTimeEl = document.querySelector( '#one_time'),
         returnVisEl = document.querySelector( '#return'),
-        mobileEl = document.querySelector( '#mobile'),
-        pageviews = parseInt( pageviewEl.innerHTML, 10 ),
+        mobileEl = document.querySelector( '#mobile');
+
+    // converting variables into int that can be used in graphs
+    var pageviews = parseInt( pageviewEl.innerHTML, 10 ),
         totalVisits = parseInt( totalVisitsEl.innerHTML, 10 ),
         uniq = parseInt( uniqEl.innerHTML, 10 ),
         oneTime = parseInt( oneTimeEl.innerHTML, 10 ),
         returnVis = parseInt( returnVisEl.innerHTML, 10 ),
         mobile = parseInt( mobileEl.innerHTML, 10 );
 
+    var oneTimeInRads = (oneTime/uniq) * (Math.PI*2),
+        retInRads = (returnVis/uniq) * (Math.PI*2),
+        mobileRads = (mobile/uniq) * (Math.PI*2),
+        normalRads= ((uniq-mobile)/uniq) * (Math.PI*2);
+
+    var oneTimePer = parseInt((oneTime/uniq) * 100, 10),
+        retPer = parseInt((returnVis/uniq)*100, 10),
+        mobilePer = parseInt((mobile/uniq)*100, 10),
+        normalPer = parseInt(((uniq-mobile)/uniq)*100, 10);
 
     // setting the canvas and context
     var canvasRect = document.querySelector( "#canvasRect" ),
     context = canvasRect.getContext( '2d' );
     // setting the drawBarRect function
-    var drawBarRect = function( height, color, xCoord){
-    //being drawing
-    context.beginPath();
-    //draw the rectangle
-    var rectWidth = 50;
-    var rectHeight = height;
-    var x = xCoord;
-    var y = canvasRect.height - rectHeight;
+    var drawBarRect = function( height, color, xCoord, text){
+        //being drawing
+        context.beginPath();
+        //draw the rectangle
+        var rectWidth = 100;
+        var rectHeight = height;
+        var x = xCoord;
+        var y = canvasRect.height - rectHeight;
 
-    context.rect( x, y, rectWidth, rectHeight );
-    //set fill color
-    context.fillStyle = color;
-    // fill in rectangle
-    context.fill();
-  };
+        context.rect( x, y, rectWidth, rectHeight );
+        //set fill color
+        context.fillStyle = color;
+        // fill in rectangle
+        context.fill();
 
-  //   var canvasCirc = document.querySelector( "#canvasCirc" ),
-  //   context = canvasCirc.getContext( '2d' );
-  // //creating a drawCircle function
-  //  var drawCircle = function( radianStart, radianEnd, color )
-  //   context.beginPath();
-  //   context.moveTo( originX, originY );
-  //   context.arc( originX, originY, radius, 0, radianStart, radianEnd );
-  //   context.closePath();
-  //   context.fillStyle = color;
-  //   context.fill(); 
+        context.font = '12pt Arial';
+        context.fillStyle = 'black';
+        context.fillText( text,
+                       canvasRect.width/2,
+                       canvasRect.height/2 + 100
+                      );
+        context.font = '12pt Arial';
+        context.fillStyle = 'black';
+        context.fillText( "Total Page Views",
+                       canvasRect.width/2 -50,
+                       canvasRect.height
+                      );
 
-  drawBarRect( pageviews, 'blue', 10);
-  drawBarRect( totalVisits, 'red', 40)
+    };
+    drawBarRect( pageviews, 'blue', 50, pageviews);
 
-});
+    var drawCircle = function( startRads, endRads, color, circText, circTextWidth ){
+        var canvasCirc = document.querySelector( "#canvasCirc" ),
+        contextCirc = canvasCirc.getContext( '2d' );
+        console.log( retInRads )
+        // sets origins and radius of the circle
+        var originX = canvasCirc.width/2,
+        originY = canvasCirc.height/2,
+        radius = canvasCirc.height/3,
+        counterClockwise = false;
+        
+        contextCirc.beginPath();
+        contextCirc.moveTo( originX, originY );
+        contextCirc.arc( originX, originY, radius, startRads, endRads, counterClockwise );
+        contextCirc.closePath();
+        contextCirc.fillStyle = color;
+        contextCirc.fill();
+
+        contextCirc.font = '12pt Arial';
+        contextCirc.fillStyle = color;
+        contextCirc.fillText( circText,
+                       circTextWidth,
+                       canvasCirc.height
+                      );
+
+    };
+    drawCircle( 0, retInRads, 'green', 'Return Visitors '  + retPer + '%', 20);
+    drawCircle( retInRads, retInRads + oneTimeInRads, 'red', 'One-Time Visitors: ' + oneTimePer + '%', 200);
+    
+    var drawMobCirc = function( startRads, endRads, color, MobCircText, mobCircTextWidth ){
+        var canvasMobCirc = document.querySelector( "#canvasMobCirc" ),
+        contextMobCirc = canvasMobCirc.getContext( '2d' );
+        console.log( retInRads )
+        // sets origins and radius of the circle
+        var originX = canvasMobCirc.width/2,
+        originY = canvasMobCirc.height/2,
+        radius = canvasMobCirc.height/3,
+        counterClockwise = false;
+        
+        contextMobCirc.beginPath();
+        contextMobCirc.moveTo( originX, originY );
+        contextMobCirc.arc( originX, originY, radius, startRads, endRads, counterClockwise );
+        contextMobCirc.closePath();
+        contextMobCirc.fillStyle = color;
+        contextMobCirc.fill();
+
+        contextMobCirc.font = '12pt Arial';
+        contextMobCirc.fillStyle = color;
+        contextMobCirc.fillText( MobCircText,
+                       mobCircTextWidth,
+                       canvasMobCirc.height
+                      );
+
+    };
+
+    drawMobCirc(0, mobileRads, 'pink', 'Mobile Visitors: ' + mobilePer + '%', 25);
+    drawMobCirc(mobileRads, mobileRads + normalRads, 'black', 'Computer Visitors: ' + normalPer + '%', 200)
+    });
 
 })();
