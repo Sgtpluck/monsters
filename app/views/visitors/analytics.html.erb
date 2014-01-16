@@ -16,9 +16,9 @@ You are <%= 'not' if @current_visitor.mobile == false %> on a mobile device.
   <tr>
     <td id='pageview'> <%= Visitor.sum(:pageview) %> </td>
     <td id='total_visits'> <%= Visitor.sum(:visits) %> </td>
-    <td id='uniq'> 30 </td>
-    <td id='one_time'> 10 </td>
-    <td id='return'> 20 </td>
+    <td id='uniq'> <%= Visitor.all.count %> </td>
+    <td id='one_time'> <%= Visitor.where(visits: 1).count %> </td>
+    <td id='return'> <%= Visitor.where('visits > 1').count %> </td>
     <td id='mobile'> <%= Visitor.where(mobile: true).count %> </td>
   </tr>
 </table>
