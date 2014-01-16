@@ -3,6 +3,7 @@ Welcome, Visitor at IP <%= @current_visitor.ip %>
 You are <%= 'not' if @current_visitor.mobile == false %> on a mobile device.
 <br><br>
 <h2>Page Visits Data:</h2>
+<canvas id='canvasRect'>
 <table>
   <tr>
     <th> Total Page Views </th>
@@ -13,11 +14,15 @@ You are <%= 'not' if @current_visitor.mobile == false %> on a mobile device.
     <th> Mobile visitors </th>
   </tr>
   <tr>
-    <td> <%= Visitor.sum(:pageview) %> </td>
-    <td> <%= Visitor.sum(:visits) %> </td>
-    <td> <%= Visitor.unique %> </td>
-    <td> <%= Visitor.where(visits: 1).count %>
-    <td> <%= Visitor.where('visits > 1').count %> </td>
-    <td> <%= Visitor.where(mobile: true).count %> </td>
+    <td id='pageview'> <%= Visitor.sum(:pageview) %> </td>
+    <td id='total_visits'> <%= Visitor.sum(:visits) %> </td>
+    <td id='uniq'> <%= Visitor.all.count %> </td>
+    <td id='one_time'> <%= Visitor.where(visits: 1).count %>
+    <td id='return'> <%= Visitor.where('visits > 1').count %> </td>
+    <td id='mobile'> <%= Visitor.where(mobile: true).count %> </td>
   </tr>
 </table>
+
+<canvas id='canvasCirc'>
+  </canvas>
+</canvas>
