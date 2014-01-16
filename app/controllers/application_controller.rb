@@ -16,18 +16,19 @@ class ApplicationController < ActionController::Base
   helper_method :current_nerd
 
   def current_visitor
-    if session[:visitor_id]
-      @current_visitor = Visitor.find(session[:visitor_id])
-    elsif cookies.permanent[:visitor_id] && Visitor.find_by(cookie_id: cookies.permanent[:visitor_id])
-      @current_visitor = Visitor.find_by(cookie_id: cookies.permanent[:visitor_id])
-      session[:visitor_id] = @current_visitor.id
-    else
-      # Assign random number as cookie id
-      cookies.permanent[:visitor_id] = rand(1000000000000000000).to_s
-      @current_visitor = Visitor.create(cookie_id: cookies.permanent[:visitor_id], mobile: user_mobile?, ip: request.remote_ip)
-      session[:visitor_id] = @current_visitor.id
-    end
-    @current_visitor
+    session[:visitor_id] = nil
+    # if session[:visitor_id]
+    #   @current_visitor = Visitor.find(session[:visitor_id])
+    # elsif cookies.permanent[:visitor_id] && Visitor.find_by(cookie_id: cookies.permanent[:visitor_id])
+    #   @current_visitor = Visitor.find_by(cookie_id: cookies.permanent[:visitor_id])
+    #   session[:visitor_id] = @current_visitor.id
+    # else
+    #   # Assign random number as cookie id
+    #   cookies.permanent[:visitor_id] = rand(1000000000000000000).to_s
+    #   @current_visitor = Visitor.create(cookie_id: cookies.permanent[:visitor_id], mobile: user_mobile?, ip: request.remote_ip)
+    #   session[:visitor_id] = @current_visitor.id
+    # end
+    # @current_visitor
   end
   helper_method :current_visitor
   
