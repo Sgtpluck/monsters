@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>MonsterSmash</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= @body_class %>">
@@ -26,7 +26,6 @@
           <%= text_field_tag :search_monsters, params[:search_monsters], class: 'ui small input' %>
            <%= submit_tag "Search by name", :name => nil, class: "ui mini orange button" %>
            <% end %>
-           <%= link_to 'analytics', analysis_path %>
       </div>
   </div>  <!-- this closes the block header tag -->
  <!-- <#%= params.inspect %> -->
