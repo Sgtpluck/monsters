@@ -90,7 +90,8 @@
     };
     drawCircle( 0, retInRads, 'green', 'Return Visitors '  + retPer + '%', 20);
     drawCircle( retInRads, retInRads + oneTimeInRads, 'red', 'One-Time Visitors: ' + oneTimePer + '%', 200);
-    
+
+
     var drawMobCirc = function( startRads, endRads, color, MobCircText, mobCircTextWidth ){
         var canvasMobCirc = document.querySelector( "#canvasMobCirc" ),
         contextMobCirc = canvasMobCirc.getContext( '2d' );
@@ -120,5 +121,5 @@
     drawMobCirc(0, mobileRads, 'pink', 'Mobile Visitors: ' + mobilePer + '%', 25);
     drawMobCirc(mobileRads, mobileRads + normalRads, 'black', 'Other: ' + normalPer + '%', 175)
     });
-
+ 
 })();
